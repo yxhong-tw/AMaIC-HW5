@@ -21,11 +21,8 @@ def criteria(a: np.ndarray) -> np.float64:
 def get_gradients(
     criteria: Callable,
     _x: List[int],
-    h: float = None,
+    h: float = 1e-5,
 ) -> np.ndarray[np.float64]:
-    if h == None:
-        h = 1.0e-5
-
     _n = len(_x)
     dm = h * np.eye(_n)
     gradients = []
@@ -112,15 +109,9 @@ def binary_search(
 def steepest_descent(
     criteria: Callable,
     _x: List[float],
-    h: float = None,
-    max_iter: int = None,
+    h: float = 1e-5,
+    max_iter: int = 1e3,
 ) -> Tuple[np.ndarray[np.float64], int]:
-    if h == None:
-        h = 1e-5
-
-    if max_iter == None:
-        max_iter = 1000
-
     for current_iter in range(max_iter):
         if current_iter == (max_iter - 1):
             print("Maximum number of iteration exceeded!")
