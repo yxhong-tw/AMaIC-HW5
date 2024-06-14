@@ -110,7 +110,7 @@ def steepest_descent(
     criteria: Callable,
     _x: List[float],
     h: float = 1e-5,
-    max_iter: int = 1e3,
+    max_iter: int = 1000,
 ) -> Tuple[np.ndarray[np.float64], int]:
     for current_iter in range(max_iter):
         if current_iter == (max_iter - 1):
